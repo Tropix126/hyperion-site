@@ -65,14 +65,15 @@
         &title {
             gap: 16px;
             text-decoration: none;
+            color: var(--on-surface);
 
             :global(svg) {
+                fill: var(--tertiary);
                 inline-size: 24px;
                 block-size: auto;
             }
 
             &-text {
-                color: var(--on-surface);
                 font-weight: 400;
                 font-size: 22px;
                 line-height: 28px;

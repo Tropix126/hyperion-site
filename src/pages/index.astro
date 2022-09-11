@@ -21,7 +21,9 @@ import { Button, PageSection } from "~/components";
         </div>
     </PageSection>
 
-    <PageSection>
+    <PageSection id="information-section">
+        <div class="cards-backdrop"></div>
+
         <h1>Him</h1>
         <p>prase</p>
         <img src="https://cdn.discordapp.com/attachments/952784046231007334/1018293069650608148/him.png" alt="him" />
@@ -32,7 +34,19 @@ import { Button, PageSection } from "~/components";
     :global(#hero-section) {
         overflow: hidden;
         margin-block-start: 62px;
-        background: var(--primary-container) url("/hero-background.jpg") top/cover no-repeat;
+        background-color: var(--primary-container);
+
+        @media (prefers-color-scheme: light) {
+            background-image: url("/hero-background-light.jpg");
+            background-size: cover;
+            background-position: top;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-image: url("/hero-background-dark.jpg");
+            background-size: cover;
+            background-position: top left;
+        }
 
         :global(.page-section-inner) {
             block-size: 560px;
@@ -50,7 +64,7 @@ import { Button, PageSection } from "~/components";
                         align-items: center;
                         text-align: center;
                         padding: 0;
-                        padding-block-start: 48px;
+                        padding-block-start: 72px;
                         p {
                             font-weight: 400;
                         }
@@ -105,5 +119,17 @@ import { Button, PageSection } from "~/components";
                 perspective: 64px;
             }
         }
+    }
+
+    // .cards-backdrop {
+    //     position: absolute;
+    //     inset: 0;
+    //     background-color: var(--surface-2);
+    //     block-size: 165px;
+    //     inline-size: 100%;
+    // }
+
+    :global(#information-section) {
+        background: var(--surface-1);
     }
 </style>

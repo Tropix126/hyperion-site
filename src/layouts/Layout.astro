@@ -1,6 +1,8 @@
 ---
 import { NavigationHeader } from "~/components";
 
+import "~/styles/theme.css";
+
 export interface Props {
 	title: string;
 }
@@ -8,7 +10,7 @@ export interface Props {
 const { title } = Astro.props;
 
 const DISCORD_INVITE = "https://discord.gg/nsvwH5xDQM";
-const GITHUB_REPO = "https://github.com/zt64/hyperion"
+const GITHUB_REPO = "https://github.com/zt64/hyperion";
 ---
 
 <!DOCTYPE html>
@@ -50,70 +52,10 @@ const GITHUB_REPO = "https://github.com/zt64/hyperion"
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-	:root {
-		font-family: "Google Sans Text", "Roboto", sans-serif;
-
-		/* Primary */
-		--primary: #006685;
-		--inverse-primary: #A3CCE2;
-		--on-primary: #ffffff;
-
-		--primary-container: #bfe9ff;
-		--on-primary-container: #001f2a;
-
-		/* Secondary */
-		--secondary: #4d616c;
-		--on-secondary: #ffffff;
-
-		--secondary-container: #D0E6F2;
-		--on-secondary-container: #081E27;
-
-		/* Tertiary */
-		--tertiary: #5E5B7D
-		--on-tertiary: #FFFFFF;
-
-		--tertiary-container: #E4DFFF;
-		--on-tertiary-container: #1A1836;
-
-		/* Error */
-		--error: #BA1A1A;
-		--on-error: #FFFFFF;
-
-		--error-container: #FFDAD6;
-		--on-error-container: #410002;
-
-		/* Background */
-		--background: #FDFCFC;
-		--on-background: #1B1C1C;
-
-		/* Surface */
-		--surface: #FDFCFC;
-		--surface-variant: #E1E3E5;
-		--surface-tint: #3B6376;
-		--surface-tint-color: #3B6376;
-		--inverse-surface: #303031;
-		--surface-1: #f3f4f5;
-		--surface-2: #edf0f1;
-		--surface-3: #e8ebed;
-		--surface-4: #e6eaec;
-		--surface-5: #e2e7e9;
-
-		--on-surface: #1B1C1C;
-		--inverse-on-surface: #F2F0F1;
-
-		/* Outline */
-		--outline: #757779;
-
-		/* Elevation */
-		--elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-		--elevation-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-		--elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
-		--elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
-		--elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
-	}
-
 	html,
 	body {
+		color-scheme: dark light;
+		background: var(--background);
 		margin: 0;
 		padding: 0;
 		width: 100%;
