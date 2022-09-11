@@ -6,6 +6,10 @@ import svelte from "@astrojs/svelte";
 import prefetch from "@astrojs/prefetch";
 import sitemap from "@astrojs/sitemap";
 
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 // https://astro.build/config
 export default defineConfig({
 	integrations: [svelte(), prefetch(), sitemap()],
@@ -13,7 +17,7 @@ export default defineConfig({
 		build: { sourcemap: true },
 		resolve: {
 			alias: {
-				"~": path.resolve("./src")
+				"~": path.resolve(__dirname, "./src")
 			}
 		}
 	}
