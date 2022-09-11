@@ -1,5 +1,5 @@
 ---
-import NavigationHeader from "~/components/NavigationHeader.astro";
+import NavigationHeader from "~/components/NavigationHeader.svelte";
 
 export interface Props {
 	title: string;
@@ -21,7 +21,7 @@ const GITHUB_REPO = "https://github.com/zt64/hyperion"
 		<title>{title}</title>
 	</head>
 	<body>
-		<NavigationHeader items={[
+		<NavigationHeader client:load items={[
 			{
 				name: "Discord",
 				href: DISCORD_INVITE,
@@ -42,6 +42,8 @@ const GITHUB_REPO = "https://github.com/zt64/hyperion"
 </html>
 
 <style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 	:root {
 		font-family: "Google Sans Text", "Roboto", sans-serif;
 

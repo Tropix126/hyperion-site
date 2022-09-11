@@ -1,24 +1,22 @@
----
-import NavigationItem from "./NavigationItem.svelte";
+<script lang="ts">
+    import NavigationItem from "./NavigationItem.svelte";
 
-export interface NavigationHeaderItem {
-    name: string;
-    href: string;
-    external?: boolean;
-}
+    interface NavigationHeaderItem {
+        name: string;
+        href: string;
+        external?: boolean;
+    }
 
-export interface Props {
-    title: string;
-    items: NavigationHeaderItem[];
-}
+    export let items: NavigationHeaderItem[] = [];
 
-const {
-    title = "",
-    items = []
-} = Astro.props as Props;
----
+    export let title = "";
 
-<header class="navigation-header">
+    let scrollY = 0;
+</script>
+
+<svelte:window bind:scrollY />
+
+<header class="navigation-header" class:elevated={scrollY > 0}>
     <nav>
         <a href="/" class="navigation-title">
             <slot name="icon" />
@@ -26,9 +24,9 @@ const {
         </a>
 
         <ul class="navigation-items">
-            {items.map(item => (
-                <NavigationItem client:load {...item} />
-            ))}
+            {#each items as item}
+                <NavigationItem {...item} />
+            {/each}
         </ul>
     </nav>
 </header>
@@ -49,9 +47,13 @@ const {
             z-index: 100;
             inline-size: 100%;
             block-size: 64px;
-            padding-inline-start: 16px;
+            padding-inline-start: 24px;
             background: var(--surface-2);
-            box-shadow: var(--elevation-2);
+            transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            
+            &.elevated {
+                box-shadow: var(--elevation-2);
+            }
 
             nav {
                 inline-size: 100%;
@@ -64,9 +66,9 @@ const {
             gap: 16px;
             text-decoration: none;
 
-            > :global(svg) {
+            :global(svg) {
                 inline-size: 24px;
-                block-size: 24px;
+                block-size: auto;
             }
 
             &-text {
