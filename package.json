@@ -1,0 +1,26 @@
+{
+	"name": "hyperion-website",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@material/ripple": "^14.0.0",
+		"astro": "^1.2.1"
+	},
+	"devDependencies": {
+		"@astrojs/prefetch": "^0.0.7",
+		"@astrojs/sitemap": "^1.0.0",
+		"@astrojs/svelte": "^1.0.0",
+		"prettier": "^2.7.1",
+		"sass": "^1.54.9",
+		"svelte": "^3.50.1",
+		"svelte-preprocess": "^4.10.7"
+	}
+}

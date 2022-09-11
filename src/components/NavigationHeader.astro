@@ -1,0 +1,86 @@
+---
+import NavigationItem from "./NavigationItem.svelte";
+
+export interface NavigationHeaderItem {
+    name: string;
+    href: string;
+    external?: boolean;
+}
+
+export interface Props {
+    title: string;
+    items: NavigationHeaderItem[];
+}
+
+const {
+    title = "",
+    items = []
+} = Astro.props as Props;
+---
+
+<header class="navigation-header">
+    <nav>
+        <a href="/" class="navigation-title">
+            <slot name="icon" />
+            <span class="navigation-title-text">{title}</span>
+        </a>
+
+        <ul class="navigation-items">
+            {items.map(item => (
+                <NavigationItem client:load {...item} />
+            ))}
+        </ul>
+    </nav>
+</header>
+
+<style lang="scss">
+    .navigation- {
+        &header,
+        &header nav,
+        &title,
+        &items {
+            display: flex;
+            align-items: center;
+        }
+        
+        &header {
+            user-select: none;
+            box-sizing: border-box;
+            z-index: 100;
+            inline-size: 100%;
+            block-size: 64px;
+            padding-inline-start: 16px;
+            background: var(--surface-2);
+            box-shadow: var(--elevation-2);
+
+            nav {
+                inline-size: 100%;
+                block-size: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        &title {
+            gap: 16px;
+            text-decoration: none;
+
+            > :global(svg) {
+                inline-size: 24px;
+                block-size: 24px;
+            }
+
+            &-text {
+                color: var(--on-surface);
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 28px;
+            }
+        }
+
+        &items {
+            padding: 0;
+            margin: 0;
+            block-size: 100%;
+        }
+    }
+</style>

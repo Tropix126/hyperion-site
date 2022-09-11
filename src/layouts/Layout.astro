@@ -1,0 +1,121 @@
+---
+import NavigationHeader from "~/components/NavigationHeader.astro";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const DISCORD_INVITE = "https://discord.gg/nsvwH5xDQM";
+const GITHUB_REPO = "https://github.com/zt64/hyperion"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<NavigationHeader items={[
+			{
+				name: "Discord",
+				href: DISCORD_INVITE,
+				external: true
+			},
+			{
+				name: "GitHub",
+				href: GITHUB_REPO,
+				external: true
+			}
+		]} title="Hyperion">
+			<svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="12" height="12"><path d="M35.6,94.52C35.58,97.88 34.23,101.11 31.85,103.49C29.45,105.88 26.19,107.23 22.8,107.23C19.41,107.23 16.15,105.88 13.75,103.49C11.35,101.09 10,97.83 10,94.43V12.8C10,9.41 11.35,6.15 13.75,3.75C16.15,1.35 19.41,0 22.8,0C26.19,0 29.45,1.35 31.85,3.75C34.25,6.15 35.6,9.41 35.6,12.8V13.42C27.87,10.25 19.04,15.89 19.04,24.59V83.35C19.04,92.05 27.87,97.69 35.6,94.52Z"/>
+				<path d="M72.94,73.09V95.2C72.94,98.59 74.29,101.85 76.69,104.25C79.09,106.65 82.34,108 85.74,108C89.13,108 92.39,106.65 94.79,104.25C97.19,101.85 98.53,98.59 98.53,95.2V13.57C98.53,10.17 97.19,6.92 94.79,4.52C92.39,2.12 89.13,0.77 85.74,0.77C82.34,0.77 79.09,2.12 76.69,4.52C74.29,6.92 72.94,10.17 72.94,13.57V34.84L87.99,43.54C96.02,48.17 96.02,59.76 87.99,64.4L72.94,73.09Z"/>
+				<path d="M79.8,48.43C84.1,50.9 84.1,57.1 79.8,59.57L37.29,84C33.01,86.46 27.67,83.37 27.67,78.43V29.57C27.67,24.63 33.01,21.54 37.29,24L79.8,48.43Z"/></svg>
+		</NavigationHeader>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		font-family: "Google Sans Text", "Roboto", sans-serif;
+
+		/* Primary */
+		--primary: #006685;
+		--inverse-primary: #A3CCE2;
+		--on-primary: #ffffff;
+
+		--primary-container: #bfe9ff;
+		--on-primary-container: #001f2a;
+
+		/* Secondary */
+		--secondary: #4d616c;
+		--on-secondary: #ffffff;
+
+		--secondary-container: #D0E6F2;
+		--on-secondary-container: #081E27;
+
+		/* Tertiary */
+		--tertiary: #5E5B7D
+		--on-tertiary: #FFFFFF;
+
+		--tertiary-container: #E4DFFF;
+		--on-tertiary-container: #1A1836;
+
+		/* Error */
+		--error: #BA1A1A;
+		--on-error: #FFFFFF;
+
+		--error-container: #FFDAD6;
+		--on-error-container: #410002;
+
+		/* Background */
+		--background: #FDFCFC;
+		--on-background: #1B1C1C;
+
+		/* Surface */
+		--surface: #FDFCFC;
+		--surface-variant: #E1E3E5;
+		--surface-tint: #3B6376;
+		--surface-tint-color: #3B6376;
+		--inverse-surface: #303031;
+		--surface-1: #f3f4f5;
+		--surface-2: #edf0f1;
+		--surface-3: #e8ebed;
+		--surface-4: #e6eaec;
+		--surface-5: #e2e7e9;
+
+		--on-surface: #1B1C1C;
+		--inverse-on-surface: #F2F0F1;
+
+		/* Outline */
+		--outline: #757779;
+
+		/* Elevation */
+		--elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+		--elevation-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+		--elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+		--elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
+		--elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.navigation-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        inline-size: 100%;
+    }
+</style>

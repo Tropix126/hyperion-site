@@ -1,0 +1,109 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+import Button from "~/components/Button.svelte";
+import PageSection from "~/components/PageSection.astro";
+---
+
+<Layout>
+    <PageSection id="hero-section">
+        <div class="hero-contents">
+            <h1>A Modern, Open YouTube Client.</h1>
+            <p>
+                Hyperion is an open-source, native Android YouTube client with a modern design and advanced capabilities. 
+            </p>
+            <div class="hero-buttons">
+                <Button client:load variant="filled">Get Hyperion</Button>
+                <Button client:load variant="elevated">Changelog</Button>
+            </div>
+        </div>
+        <div class="hero-preview-wrapper">
+            <img class="hero-preview" src="/hero-preview.png" alt="Hyperion app preview" />
+        </div>
+    </PageSection>
+
+    <PageSection>
+        <h1>Him</h1>
+        <p>prase</p>
+        <img src="https://cdn.discordapp.com/attachments/952784046231007334/1018293069650608148/him.png" alt="him" />
+    </PageSection>
+</Layout>
+
+<style lang="scss">
+    :global(#hero-section) {
+        overflow: hidden;
+        margin-block-start: 62px;
+        background: var(--primary-container) url("/hero-background.jpg") top/cover no-repeat;
+
+        :global(.page-section-inner) {
+            block-size: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+
+            @media only screen and (max-width: 905px) {
+                flex-direction: column;
+                block-size: 768px;
+
+                .hero- {
+                    &contents {
+                        align-items: center;
+                        text-align: center;
+                        padding: 0;
+                        padding-block-start: 48px;
+                        p {
+                            font-weight: 400;
+                        }
+                    }
+                    &preview-wrapper {
+                        inset-block-end: -50px;
+                    }
+                }
+            }
+        }
+    }
+
+    .hero- {
+        &contents {
+            box-sizing: border-box;
+            padding-block: 82px 48px;
+            display: flex;
+            flex-direction: column;
+            block-size: 100%;
+            color: var(--on-surface);
+            h1 {
+                margin: 0;
+                max-inline-size: 16ch;
+                font-weight: 500;
+                font-size: 57px;
+                line-height: 64px;
+                letter-spacing: -0.25px;
+            }
+            p {
+                margin-block: 24px;
+                max-inline-size: 40ch;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+        &buttons {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        &preview {
+            inline-size: 380px;
+            transform: rotateY(-2deg);
+            &-wrapper {
+                position: relative;
+                inset-block-end: -220px;
+                perspective: 64px;
+            }
+        }
+    }
+</style>
