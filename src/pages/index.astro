@@ -92,6 +92,9 @@ import { Button, PageSection } from "~/components";
                 font-size: 57px;
                 line-height: 64px;
                 letter-spacing: -0.25px;
+                @media only screen and (max-width: 500px) {
+                    font-size: 45px;
+                }
             }
             p {
                 margin-block: 24px;
@@ -110,8 +113,10 @@ import { Button, PageSection } from "~/components";
         }
 
         &preview {
+            box-sizing: border-box;
             inline-size: 100%;
             max-inline-size: 380px;
+            padding-inline: 16px;
             transform: rotateY(-2deg);
             &-wrapper {
                 position: relative;

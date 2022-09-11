@@ -1,6 +1,7 @@
 @media (prefers-color-scheme: light) {
     :root {
         font-family: "Google Sans Text", "Roboto", sans-serif;
+        --mdc-ripple-color: #000000;
 
         /* Primary */
         --primary: #006685;
@@ -69,6 +70,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         font-family: "Google Sans Text", "Roboto", sans-serif;
+        --mdc-ripple-color: #FFFFFF;
 
         /* Primary */
         --primary: #6BD2FF;
