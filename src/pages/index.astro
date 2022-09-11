@@ -43,7 +43,7 @@ import { Button, PageSection } from "~/components";
 
             @media only screen and (max-width: 905px) {
                 flex-direction: column;
-                block-size: 768px;
+                block-size: 860px;
 
                 .hero- {
                     &contents {
@@ -96,11 +96,12 @@ import { Button, PageSection } from "~/components";
         }
 
         &preview {
-            inline-size: 380px;
+            inline-size: 100%;
+            max-inline-size: 380px;
             transform: rotateY(-2deg);
             &-wrapper {
                 position: relative;
-                inset-block-end: -220px;
+                inset-block-end: -40%;
                 perspective: 64px;
             }
         }
